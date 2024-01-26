@@ -4,8 +4,12 @@ import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 import { Box } from 'native-base';
 import { Text as RnText } from 'react-native';
+import { useGetArticles } from '@/features/articles';
 
 export default function TabOneScreen() {
+  const { data, isLoading } = useGetArticles();
+  console.log(data, 'From index');
+  if (isLoading) return null;
   return (
     <View style={styles.container}>
       <Box>Hello world</Box>

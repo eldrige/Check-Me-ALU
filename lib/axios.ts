@@ -14,7 +14,7 @@ async function authRequestInterceptor(config: InternalAxiosRequestConfig) {
 }
 
 export const axios = Axios.create({
-  baseURL: 'https://check-me.onrender.com',
+  baseURL: 'https://check-me.onrender.com/api/v1/',
 });
 
 axios.interceptors.request.use(authRequestInterceptor);
