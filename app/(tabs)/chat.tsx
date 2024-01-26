@@ -1,4 +1,4 @@
-import { Keyboard, StyleSheet, TextInput } from 'react-native';
+import { Keyboard, StyleSheet, TextInput, SafeAreaView } from 'react-native';
 
 import DateTimePicker, {
   DateTimePickerAndroid,
