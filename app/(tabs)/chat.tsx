@@ -1,15 +1,15 @@
-import { StyleSheet, TextInput } from 'react-native';
+import { StyleSheet, TextInput,SafeAreaView } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 import { router } from 'expo-router';
 
 export default function ChatScreen() {
   return (
-    <SafeAreaView className="w-full flex-1">
+    <SafeAreaView className="w-full flex flex-1">
       <View className="w-full flex flex-row items-center justify-between px-4 py-2">
         <View className="flex flex-row items-center justify-between">
           <Ionicons
