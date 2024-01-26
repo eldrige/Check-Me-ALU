@@ -1,69 +1,46 @@
 import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
-import { View, Text } from 'react-native';
+import { View, TextInput, Pressable } from 'react-native';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useState, useCallback } from 'react';
+import { CustomText } from '@/components/CustomText';
+import Animated from 'react-native-reanimated';
+import { secureStore } from '@/utils/secureStore';
 
 export default function LoginScreen() {
-  const ITEMS = [
-    {
-      title: 'Learn how to perform self exams',
-
-      active: true,
-    },
-    {
-      title: 'Connect with licensed specialists',
-
-      active: false,
-    },
-    {
-      title: 'Schedule Your First Consultation',
-      active: false,
-    },
-  ];
-
-  const [slideIdx, setslideIdx] = useState(0);
-  const [featuredItem, setFeaturedItem] = useState(ITEMS[slideIdx]);
-
-  const goToNextItem = useCallback(() => {
-    if (slideIdx === 2) {
-      router.replace('/(tabs)');
-      return;
-    }
-    let nextIdx;
-    if (slideIdx + 1 >= ITEMS.length) {
-      nextIdx = 0;
-    } else {
-      nextIdx = slideIdx + 1;
-    }
-    setslideIdx(nextIdx);
-    setFeaturedItem(ITEMS[nextIdx]);
-  }, [slideIdx, ITEMS]);
+  const [name, setName] = useState('');
+  const handleGoHome = () => {
+    if (!name) return;
+    secureStore.setItem('username', name);
+    router.push('/(tabs)');
+  };
 
   return (
     <View style={styles.container}>
-      <View className="px-6 py-8 rounded-t-[60px] bg-[#d9d9d9] h-[40%] justify-between">
-        <Text className="text-black text-center font-bold text-3xl">
-          {featuredItem.title}
-        </Text>
-
-        <Text className="text-black text-center font-bold ">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam
-          vitae officiis necessitatibus laboriosam inventore quae dolore, dolor
-          consequatur culpa? Quod reiciendis aut iure enim fugiat corrupti quis
-          veritatis repellat illum.
-        </Text>
-        <View className="items-center justify-between flex-row w-full">
-          <Text>Skip to home</Text>
+      <Animated.View className="mx-auto w-[85%]">
+        <CustomText className="font-bold text-3xl text-black ">
+          Hello there !
+        </CustomText>
+        <CustomText className="text-black my-2">
+          Im CheckMe, what can I call you ?
+        </CustomText>
+        <TextInput
+          className="bg-[#ededed] rounded-xl p-3 mb-2"
+          placeholder="Name"
+          value={name}
+          onChangeText={(val) => setName(val)}
+        />
+        <Pressable className="bg-[#ededed] rounded-md p-2 self-end">
           <Ionicons
-            name="chevron-forward-outline"
+            name="arrow-forward"
+            className="text-black"
             size={24}
-            onPress={goToNextItem}
+            onPress={handleGoHome}
           />
-        </View>
-      </View>
+        </Pressable>
+      </Animated.View>
     </View>
   );
 }
@@ -71,8 +48,8 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+    // alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     fontSize: 20,

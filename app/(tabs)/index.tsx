@@ -4,18 +4,33 @@ import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 import { Box } from 'native-base';
 import { Text as RnText } from 'react-native';
-import { useGetArticles } from '@/features/articles';
+// import { useGetArticles } from '@/features/articles';
+import { router } from 'expo-router';
+import { useState, useEffect } from 'react';
+import { secureStore } from '@/utils/secureStore';
 
 export default function TabOneScreen() {
-  const { data, isLoading } = useGetArticles();
-  console.log(data, 'From index');
-  if (isLoading) return null;
+  const [username, setUsername] = useState('');
+  useEffect(() => {
+    secureStore.getItem('username').then((value) => {
+      if (value) {
+        setUsername(value);
+      }
+    });
+  }, [username]);
+  // const { data, isLoading } = useGetArticles();
+  // console.log(data, 'From index');
+  // if (isLoading) return null;
   return (
     <View style={styles.container}>
-      <Box>Hello world</Box>
-
-      <RnText className="text-red-500">Hello world</RnText>
-      <Text style={styles.title}>Tab One</Text>
+      <Text
+        style={styles.title}
+        onPress={() => {
+          router.replace('/');
+        }}
+      >
+        Onboarding, {username}
+      </Text>
       <View
         style={styles.separator}
         lightColor="#eee"
