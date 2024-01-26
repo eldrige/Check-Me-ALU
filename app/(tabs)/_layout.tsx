@@ -24,6 +24,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Dashboard',
+          headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           // headerRight: () => (
           //   <Link href="/modal" asChild>
