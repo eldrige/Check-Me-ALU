@@ -1,4 +1,6 @@
+import 'react-native-gesture-handler';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { StyleSheet } from 'react-native';
 import {
   DarkTheme,
   DefaultTheme,
@@ -10,6 +12,11 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { NativeBaseProvider, Box } from 'native-base';
 import { useColorScheme } from '@/components/useColorScheme';
+import { queryClient } from '@/lib/react-query';
+import { QueryClientProvider } from 'react-query';
+import { AuthProvider } from '@/providers/authProvider.';
+import { NotificationsProvider } from '@/providers/notificatedProvider';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -52,13 +59,37 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <NativeBaseProvider>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        </Stack>
-      </ThemeProvider>
-    </NativeBaseProvider>
+    <GestureHandlerRootView style={styles.gestureHandlerRootView}>
+      <NativeBaseProvider>
+        {/* NativeBaseProvider includes SafeAreaProvider so that we don't have to include it in a root render tree */}
+        {/* @ts-expect-error: error comes from a react-native-notificated library which doesn't have declared children in types required in react 18 */}
+        <NotificationsProvider>
+          <QueryClientProvider client={queryClient} contextSharing={true}>
+            <AuthProvider>
+              <ThemeProvider
+                value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+              >
+                <Stack>
+                  <Stack.Screen
+                    name="(tabs)"
+                    options={{ headerShown: false }}
+                  />
+                  <Stack.Screen
+                    name="modal"
+                    options={{ presentation: 'modal' }}
+                  />
+                </Stack>
+              </ThemeProvider>
+            </AuthProvider>
+          </QueryClientProvider>
+        </NotificationsProvider>
+      </NativeBaseProvider>
+    </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  gestureHandlerRootView: {
+    flex: 1,
+  },
+});
