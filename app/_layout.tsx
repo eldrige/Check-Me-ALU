@@ -71,6 +71,10 @@ function RootLayoutNav() {
               >
                 <Stack>
                   <Stack.Screen
+                    name="onboarding"
+                    options={{ headerShown: false }}
+                  />
+                  <Stack.Screen
                     name="(tabs)"
                     options={{ headerShown: false }}
                   />
