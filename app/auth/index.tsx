@@ -6,7 +6,7 @@ import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useState, useCallback } from 'react';
 
-export default function OnboardingScreen() {
+export default function LoginScreen() {
   const ITEMS = [
     {
       title: 'Learn how to perform self exams',
@@ -29,7 +29,7 @@ export default function OnboardingScreen() {
 
   const goToNextItem = useCallback(() => {
     if (slideIdx === 2) {
-      router.replace('/auth/');
+      router.replace('/(tabs)');
       return;
     }
     let nextIdx;
@@ -48,6 +48,7 @@ export default function OnboardingScreen() {
         <Text className="text-black text-center font-bold text-3xl">
           {featuredItem.title}
         </Text>
+
         <Text className="text-black text-center font-bold ">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam
           vitae officiis necessitatibus laboriosam inventore quae dolore, dolor
