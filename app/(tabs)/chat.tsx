@@ -1,4 +1,4 @@
-import { Keyboard, StyleSheet, TextInput, SafeAreaView } from 'react-native';
+import { Keyboard, StyleSheet, TextInput, SafeAreaView , Platform} from 'react-native';
 
 import DateTimePicker, {
   DateTimePickerAndroid,
@@ -49,13 +49,24 @@ export default function ChatScreen() {
           size={24}
           color="black"
           onPress={() => {
-            DateTimePickerAndroid.open({
-              value: date,
-              onChange,
-              mode: 'date',
-              is24Hour: true,
-            });
-          }}
+            if(Platform.OS === 'android') {
+              DateTimePickerAndroid.open({
+                value: date,
+                onChange,
+                mode: 'date',
+                is24Hour: true,
+              });
+              return
+            }}
+            } else {
+              <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode={mode}
+          is24Hour={true}
+          onChange={onChange}
+        />
+            }
         />
       </View>
       <ScrollView className="flex-1 px-4 py-2 gap-2 bg-white">
