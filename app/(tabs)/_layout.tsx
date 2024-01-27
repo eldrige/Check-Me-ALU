@@ -30,11 +30,9 @@ export default function TabLayout() {
         tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: '#FF5B83',
+          display: 'none',
         },
         // tabBarStyle: {
-      }}
-      sceneContainerStyle={{
-        backgroundColor: 'red',
       }}
     >
       <Tabs.Screen

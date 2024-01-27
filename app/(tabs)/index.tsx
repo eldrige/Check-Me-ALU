@@ -36,16 +36,18 @@ export default function TabOneScreen() {
         {/* <Feather name="menu" size={24} color="black" /> */}
         <View className="bg-transparent flex flex-row items-start justify-between gap-4">
           <View className="flex-1 bg-transparent">
-            <Text>Good morning, {username}</Text>
-            <Text className="font-semibold text-black text-2xl ">
+            <Text className="text-white">Good morning, {username}</Text>
+            <Text className="font-semibold text-white text-2xl ">
               its been 17 days since your last checkup
             </Text>
           </View>
-          <Pressable className="bg-[#d9d9d9] w-10 h-10 rounded-full items-center justify-center">
-            <FontAwesome name="bell" size={18} color="black" />
+          <Pressable className="bg-[#FF5B83] w-10 h-10 rounded-full items-center justify-center">
+            <FontAwesome name="bell" size={18} color="white" />
           </Pressable>
         </View>
-        <Text className="mb-2 mt-12">What would you like to do today?</Text>
+        <Text className="mb-2 mt-12 text-white">
+          What would you like to do today?
+        </Text>
         <View className="bg-transparent flex-row items-center justify-between gap-2 w-full mb-4">
           <Pressable
             onPress={() => router.push('/self-exam')}
@@ -55,11 +57,14 @@ export default function TabOneScreen() {
               Self examination
             </Text>
           </Pressable>
-          <View className="px-3 w-[48%] h-24 bg-white rounded-2xl items-center justify-center">
+          <Pressable
+            onPress={() => router.push('/chat')}
+            className="px-3 w-[48%] h-24 bg-white rounded-2xl items-center justify-center"
+          >
             <Text className="text-black font-semibold text-[20px]">
               Chat with a specialist
             </Text>
-          </View>
+          </Pressable>
         </View>
         <View className="bg-transparent flex-row items-center justify-between gap-2 w-full">
           <View className="px-3 w-[48%] h-24 bg-white rounded-2xl items-center justify-center">
@@ -67,13 +72,16 @@ export default function TabOneScreen() {
               Check your calendar
             </Text>
           </View>
-          <View className="px-3 w-[48%] h-24 bg-white rounded-2xl items-center justify-center">
+          <Pressable
+            onPress={() => router.push('/articles')}
+            className="px-3 w-[48%] h-24 bg-white rounded-2xl items-center justify-center"
+          >
             <Text className="text-black font-semibold text-[20px]">
               Read our blog
             </Text>
-          </View>
+          </Pressable>
         </View>
-        <Text className=" mb-2 mt-12 text-black font-semibold text-[20px]">
+        <Text className=" mb-2 mt-12 text-white font-semibold text-[20px]">
           Upcoming events
         </Text>
         <View className="bg-transparent w-full rounded-2xl bg-white h-[25%]"></View>

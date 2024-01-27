@@ -58,7 +58,12 @@ export default function OnboardingScreen() {
           {featuredItem.label}
         </CustomText>
         <View className="items-center justify-between flex-row w-full">
-          <CustomText className="underline">Skip to login</CustomText>
+          <CustomText
+            onPress={() => router.replace('/auth/')}
+            className="underline text-white"
+          >
+            Skip{' '}
+          </CustomText>
           <Pressable className="bg-white rounded-md p-2">
             <Ionicons
               name="arrow-forward"

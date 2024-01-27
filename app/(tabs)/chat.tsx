@@ -30,7 +30,7 @@ export default function ChatScreen() {
   };
 
   return (
-    <SafeAreaView className="w-full flex flex-1">
+    <SafeAreaView className="w-full flex pt-12 flex-1">
       <View className="w-full flex flex-row items-center justify-between px-4 py-2">
         <View className="flex flex-row items-center justify-between">
           <Ionicons
@@ -58,12 +58,12 @@ export default function ChatScreen() {
           }}
         />
       </View>
-      <ScrollView className="flex-1 px-4 py-2 gap-2">
+      <ScrollView className="flex-1 px-4 py-2 gap-2 bg-white">
         {messages.map((message, index) => {
           return (
             <Text
               key={index}
-              className="w-3/5 px-4 py-2 bg-red-200 rounded-t-lg rounded-bl-lg self-end"
+              className="w-3/5 px-4 py-2  rounded-t-lg rounded-bl-lg self-end"
             >
               {message}
             </Text>

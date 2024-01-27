@@ -18,6 +18,7 @@ export default function SelfExam() {
         'Remeber to please stay calm and relaxed. A breast self exam is not a substitute for a doctors visit',
         'A breast self exam is a safe way to become familiar with the normal look and feel of your breast',
       ],
+      count: null,
     },
     {
       title: 'Finish your self exam in 7 steps',
@@ -25,6 +26,7 @@ export default function SelfExam() {
         'Remeber to please stay calm and relaxed. A breast self exam is not a substitute for a doctors visit',
         'A breast self exam is a safe way to become familiar with the normal look and feel of your breast',
       ],
+      count: null,
     },
     {
       title: 'Make surre you are comfortable',
@@ -32,6 +34,65 @@ export default function SelfExam() {
         'Remeber to please stay calm and relaxed. A breast self exam is not a substitute for a doctors visit',
         'A breast self exam is a safe way to become familiar with the normal look and feel of your breast',
       ],
+      count: null,
+    },
+    {
+      title: 'Stand with both hands on your hips',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+      count: 1,
+    },
+    {
+      title: 'Raise your arms above your head',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+
+      count: 2,
+    },
+    {
+      title: 'Lie down on your side and inspect',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+      count: 3,
+    },
+    {
+      title: 'Sit down and prepare to physically check',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+      count: 4,
+    },
+    {
+      title: 'Feel the left breast with your right hand',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+      count: 5,
+    },
+    {
+      title: 'Feel the left breast with your left hand',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+
+      count: 6,
+    },
+    {
+      title: 'Take note of any changes',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+      count: 7,
     },
   ];
 
@@ -39,6 +100,10 @@ export default function SelfExam() {
   const [featuredItem, setFeaturedItem] = useState(ITEMS[slideIdx]);
 
   const goToNextItem = useCallback(() => {
+    if (slideIdx === ITEMS.length - 1) {
+      router.replace('/done');
+      return;
+    }
     let nextIdx;
     if (slideIdx + 1 >= ITEMS.length) {
       nextIdx = 0;
@@ -64,47 +129,45 @@ export default function SelfExam() {
         <View className="bg-transparent">
           <Ionicons
             name="arrow-back"
-            color="black"
+            color="white"
             size={24}
             onPress={() => router.back()}
           />
         </View>
         <View className="bg-transparent h-[50%] justify-between">
           <View className="bg-transparent">
-            {/* <CustomText className="italic text-[20px] font-semibold mb-1">
-              Step 1
-            </CustomText> */}
-            <CustomText className="text-3xl font-bold text-black">
+            {slideIdx > 2 && (
+              <CustomText className="italic text-[20px] text-white font-semibold mb-1">
+                Step {featuredItem.count}
+              </CustomText>
+            )}
+            <CustomText className="text-3xl font-bold text-white">
               {featuredItem.title}
             </CustomText>
           </View>
           {featuredItem.steps.map((item, idx) => (
-            <CustomText key={idx} className="text-black">
+            <CustomText key={idx} className="text-white">
               {item}
             </CustomText>
           ))}
-          {/* <CustomText className="text-black">
-            Remember to stay and relaxed A breast self exam is not a substiture
-            for a doctor's visit or a screening mammogram
-          </CustomText>
-          <CustomText className="text-black">
-            A breast self exam is a safe way to become familiar with the normal
-            look and feel of your breast
-          </CustomText> */}
-          <CustomText className="underline italic max-w-[80%]">
-            Read more about why breast exams are conducted
-          </CustomText>
+          {slideIdx < 2 && (
+            <CustomText className="underline italic max-w-[80%] text-white">
+              Read more about why breast exams are conducted
+            </CustomText>
+          )}
           <View className="w-full bg-transparent flex-row items-center justify-between">
-            <CustomText className="underline">Skip </CustomText>
+            <CustomText className="underline text-white">Skip </CustomText>
             <View className="flex-row bg-transparent gap-3">
-              <Pressable className="bg-white rounded-md py-2 px-3">
-                <Ionicons
-                  name="arrow-back"
-                  className="text-black"
-                  size={24}
-                  onPress={goToPreviousItem}
-                />
-              </Pressable>
+              {slideIdx === 0 ? null : (
+                <Pressable className="bg-white rounded-md py-2 px-3">
+                  <Ionicons
+                    name="arrow-back"
+                    className="text-black"
+                    size={24}
+                    onPress={goToPreviousItem}
+                  />
+                </Pressable>
+              )}
               <Pressable className="bg-white rounded-md py-2 px-3">
                 <Ionicons
                   name="arrow-forward"
