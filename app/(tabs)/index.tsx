@@ -1,4 +1,9 @@
-import { Pressable, SafeAreaView, StyleSheet } from 'react-native';
+import {
+  ImageBackground,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+} from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
@@ -23,54 +28,57 @@ export default function TabOneScreen() {
   // console.log(data, 'From index');
   // if (isLoading) return null;
   return (
-    <SafeAreaView className="flex flex-1 bg-white">
-      <View className="w-full py-12 px-6">
+    <ImageBackground
+      source={require('@/assets/images/bg.png')}
+      className="flex flex-1"
+    >
+      <View className="w-full bg-transparent py-12 px-6">
         {/* <Feather name="menu" size={24} color="black" /> */}
-        <View className="flex flex-row items-start justify-between gap-4">
-          <View className="flex-1">
+        <View className="bg-transparent flex flex-row items-start justify-between gap-4">
+          <View className="flex-1 bg-transparent">
             <Text>Good morning, {username}</Text>
             <Text className="font-semibold text-black text-2xl ">
               its been 17 days since your last checkup
             </Text>
           </View>
-          <Pressable className="bg-[#d9d9d9] w-12 h-12 rounded-full items-center justify-center">
+          <Pressable className="bg-[#d9d9d9] w-10 h-10 rounded-full items-center justify-center">
             <FontAwesome name="bell" size={18} color="black" />
           </Pressable>
         </View>
         <Text className="mb-2 mt-12">What would you like to do today?</Text>
-        <View className="flex-row items-center justify-between gap-2 w-full mb-4">
+        <View className="bg-transparent flex-row items-center justify-between gap-2 w-full mb-4">
           <Pressable
             onPress={() => router.push('/self-exam')}
-            className="px-3 w-[48%] h-24 bg-[#d9d9d9] rounded-2xl items-center justify-center"
+            className="px-3 w-[48%] h-24 bg-white rounded-2xl items-center justify-center"
           >
             <Text className="text-black font-semibold text-[20px]">
               Self examination
             </Text>
           </Pressable>
-          <View className="px-3 w-[48%] h-24 bg-[#d9d9d9] rounded-2xl items-center justify-center">
+          <View className="px-3 w-[48%] h-24 bg-white rounded-2xl items-center justify-center">
             <Text className="text-black font-semibold text-[20px]">
               Chat with a specialist
             </Text>
           </View>
         </View>
-        <View className="flex-row items-center justify-between gap-2 w-full">
-          <View className="px-3 w-[48%] h-24 bg-[#d9d9d9] rounded-2xl items-center justify-center">
+        <View className="bg-transparent flex-row items-center justify-between gap-2 w-full">
+          <View className="px-3 w-[48%] h-24 bg-white rounded-2xl items-center justify-center">
             <Text className="text-black font-semibold text-[20px]">
               Check your calendar
             </Text>
           </View>
-          <View className="px-3 w-[48%] h-24 bg-[#d9d9d9] rounded-2xl items-center justify-center">
+          <View className="px-3 w-[48%] h-24 bg-white rounded-2xl items-center justify-center">
             <Text className="text-black font-semibold text-[20px]">
               Read our blog
             </Text>
           </View>
         </View>
-        <Text className="mb-2 mt-12 text-black font-semibold text-[20px]">
+        <Text className=" mb-2 mt-12 text-black font-semibold text-[20px]">
           Upcoming events
         </Text>
-        <View className="w-full rounded-2xl bg-[#dedede] h-[25%]"></View>
+        <View className="bg-transparent w-full rounded-2xl bg-white h-[25%]"></View>
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 }
 

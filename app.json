@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#f542b6",
       "position": "center",
       "splashStyle": {
         "alignItems": "center",
@@ -25,7 +25,7 @@
       "splash": {
         "image": "./assets/images/splash.png",
         "resizeMode": "contain",
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "#f542b6",
         "position": "center",
         "splashStyle": {
           "alignItems": "center",
@@ -34,7 +34,7 @@
       },
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/splash.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#f542b6"
       }
     },
     "web": {

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ImageBackground } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { View, Pressable } from 'react-native';
@@ -46,22 +46,15 @@ export default function OnboardingScreen() {
   }, [slideIdx, ITEMS]);
 
   return (
-    <View style={styles.container}>
-      <View className="px-6 py-8 rounded-t-[60px] bg-[#d9d9d9] h-[36%] justify-around relative">
-        <View className="flex-row justify-center align-center mx-auto absolute -top-6 left-1/2">
-          {ITEMS.map((item, idx) => (
-            <View
-              key={idx}
-              className={`w-3 h-3 rounded-full ${
-                idx === slideIdx ? 'bg-black' : 'bg-white'
-              } mx-1`}
-            />
-          ))}
-        </View>
-        <CustomText className="text-black capitalize text-center font-bold text-3xl leading-9">
+    <ImageBackground
+      source={require('@/assets/images/bg.png')}
+      style={styles.container}
+    >
+      <View className="px-6 py-8 rounded-t-[60px] bg-transparent h-[36%] justify-around relative">
+        <CustomText className="text-white capitalize text-center font-bold text-3xl leading-9">
           {featuredItem.title}
         </CustomText>
-        <CustomText className="text-black text-center font-bold">
+        <CustomText className="text-white text-center font-bold">
           {featuredItem.label}
         </CustomText>
         <View className="items-center justify-between flex-row w-full">
@@ -69,14 +62,14 @@ export default function OnboardingScreen() {
           <Pressable className="bg-white rounded-md p-2">
             <Ionicons
               name="arrow-forward"
-              className="text-black"
+              className="text-white"
               size={24}
               onPress={goToNextItem}
             />
           </Pressable>
         </View>
       </View>
-    </View>
+    </ImageBackground>
   );
 }
 

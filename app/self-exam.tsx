@@ -1,4 +1,9 @@
-import { Pressable, SafeAreaView, StyleSheet } from 'react-native';
+import {
+  ImageBackground,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+} from 'react-native';
 import { Text, View } from '@/components/Themed';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
@@ -51,9 +56,12 @@ export default function SelfExam() {
   }, [slideIdx, ITEMS, setslideIdx, setFeaturedItem]);
 
   return (
-    <SafeAreaView className="flex flex-1 bg-white">
-      <View className="w-full flex flex-col flex-1 justify-between py-12 px-6">
-        <View>
+    <ImageBackground
+      source={require('@/assets/images/bg.png')}
+      className="flex flex-1"
+    >
+      <View className="bg-transparent w-full flex flex-col flex-1 justify-between py-12 px-6">
+        <View className="bg-transparent">
           <Ionicons
             name="arrow-back"
             color="black"
@@ -61,8 +69,8 @@ export default function SelfExam() {
             onPress={() => router.back()}
           />
         </View>
-        <View className="h-[50%] justify-between">
-          <View>
+        <View className="bg-transparent h-[50%] justify-between">
+          <View className="bg-transparent">
             {/* <CustomText className="italic text-[20px] font-semibold mb-1">
               Step 1
             </CustomText> */}
@@ -86,10 +94,10 @@ export default function SelfExam() {
           <CustomText className="underline italic max-w-[80%]">
             Read more about why breast exams are conducted
           </CustomText>
-          <View className="w-full flex-row items-center justify-between">
+          <View className="w-full bg-transparent flex-row items-center justify-between">
             <CustomText className="underline">Skip </CustomText>
-            <View className="flex-row gap-3">
-              <Pressable className="bg-[#dedede] rounded-md p-2">
+            <View className="flex-row bg-transparent gap-3">
+              <Pressable className="bg-white rounded-md py-2 px-3">
                 <Ionicons
                   name="arrow-back"
                   className="text-black"
@@ -97,7 +105,7 @@ export default function SelfExam() {
                   onPress={goToPreviousItem}
                 />
               </Pressable>
-              <Pressable className="bg-[#dedede] rounded-md p-2">
+              <Pressable className="bg-white rounded-md py-2 px-3">
                 <Ionicons
                   name="arrow-forward"
                   className="text-black"
@@ -109,7 +117,7 @@ export default function SelfExam() {
           </View>
         </View>
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 }
 

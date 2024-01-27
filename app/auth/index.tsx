@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
-import { View, TextInput, Pressable } from 'react-native';
+import { View, TextInput, Pressable, ImageBackground } from 'react-native';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useState, useCallback } from 'react';
@@ -18,30 +18,33 @@ export default function LoginScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <ImageBackground
+      source={require('@/assets/images/bg.png')}
+      style={styles.container}
+    >
       <Animated.View className="mx-auto w-[85%]">
-        <CustomText className="font-bold text-3xl text-black ">
-          Hello there !
+        <CustomText className="font-bold text-3xl text-white ">
+          Hello there!
         </CustomText>
-        <CustomText className="text-black my-2">
+        <CustomText className="text-white mt-2 mb-4">
           Im CheckMe, what can I call you ?
         </CustomText>
         <TextInput
-          className="bg-[#ededed] rounded-xl p-3 mb-2"
+          className="bg-[#ededed] rounded-xl px-6 py-3 mb-2"
           placeholder="Name"
           value={name}
           onChangeText={(val) => setName(val)}
         />
-        <Pressable className="bg-[#ededed] rounded-md p-2 self-end">
+        <Pressable className="bg-[#ededed] rounded-lg p-2.5 self-end">
           <Ionicons
             name="arrow-forward"
-            className="text-black"
-            size={24}
+            className="text-white"
+            size={28}
             onPress={handleGoHome}
           />
         </Pressable>
       </Animated.View>
-    </View>
+    </ImageBackground>
   );
 }
 

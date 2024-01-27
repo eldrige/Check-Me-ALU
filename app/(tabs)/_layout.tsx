@@ -12,34 +12,37 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  return (
+    <FontAwesome
+      size={28}
+      color="white"
+      style={{ marginBottom: -3 }}
+      {...props}
+    />
+  );
 }
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        // tabBarBackground: 'red',
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          backgroundColor: '#FF5B83',
+        },
+        // tabBarStyle: {
+      }}
+      sceneContainerStyle={{
+        backgroundColor: 'red',
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Dashboard',
+          title: 'Home',
           headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-          // headerRight: () => (
-          //   <Link href="/modal" asChild>
-          //     <Pressable>
-          //       {({ pressed }) => (
-          //         <FontAwesome
-          //           name="info-circle"
-          //           size={25}
-          //           color={Colors[colorScheme ?? 'light'].text}
-          //           style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-          //         />
-          //       )}
-          //     </Pressable>
-          //   </Link>
-          // ),
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color="white" />,
         }}
       />
       <Tabs.Screen
@@ -48,8 +51,11 @@ export default function TabLayout() {
           title: 'Articles',
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <Ionicons name="book" size={25} color={color} />
+            <Ionicons name="book" size={25} color="white" />
           ),
+          tabBarStyle: {
+            backgroundColor: 'transparent',
+          },
         }}
       />
       <Tabs.Screen
@@ -58,7 +64,7 @@ export default function TabLayout() {
           title: 'Chat',
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <Ionicons name="chatbox-outline" size={25} color={color} />
+            <Ionicons name="chatbox-outline" size={25} color="white" />
           ),
           tabBarStyle: {
             display: 'none',
