@@ -21,13 +21,13 @@ export default function LoginScreen() {
     <View style={styles.container}>
       <Animated.View className="mx-auto w-[85%]">
         <CustomText className="font-bold text-3xl text-black ">
-          Hello there !
+          Hello there!
         </CustomText>
-        <CustomText className="text-black my-2">
-          Im CheckMe, what can I call you ?
+        <CustomText className="text-black mt-4 mb-5">
+          I'm CheckMe, what can I call you?
         </CustomText>
         <TextInput
-          className="bg-[#ededed] rounded-xl p-3 mb-2"
+          className="bg-[#ededed] rounded-xl py-4 text-lg px-6 mb-5"
           placeholder="Name"
           value={name}
           onChangeText={(val) => setName(val)}
@@ -36,7 +36,7 @@ export default function LoginScreen() {
           <Ionicons
             name="arrow-forward"
             className="text-black"
-            size={24}
+            size={36}
             onPress={handleGoHome}
           />
         </Pressable>

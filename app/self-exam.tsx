@@ -28,6 +28,55 @@ export default function SelfExam() {
         'A breast self exam is a safe way to become familiar with the normal look and feel of your breast',
       ],
     },
+    {
+      title: 'Stand with both hands on your hips',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+    },
+    {
+      title: 'Raise your arms above your head',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+    },
+    {
+      title: 'Lie down on your side and inspect',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+    },
+    {
+      title: 'Sit down and prepare to physically check',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+    },
+    {
+      title: 'Feel the left breast with your right hand',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+    },
+    {
+      title: 'Feel the left breast with your left hand',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+    },
+    {
+      title: 'Take note of any changes',
+      steps: [
+        'Visually inspect your breasts, look out for puckering, dimpling, or any changes in size, shape or symmetry.',
+        'Check to see if your nipples are inverted, and look out for any fluid discharge.',
+      ],
+    },
   ];
 
   const [slideIdx, setslideIdx] = useState(0);
@@ -63,9 +112,9 @@ export default function SelfExam() {
         </View>
         <View className="h-[50%] justify-between">
           <View>
-            {/* <CustomText className="italic text-[20px] font-semibold mb-1">
+            <CustomText className="italic text-[20px] font-semibold mb-1">
               Step 1
-            </CustomText> */}
+            </CustomText>
             <CustomText className="text-3xl font-bold text-black">
               {featuredItem.title}
             </CustomText>

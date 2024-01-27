@@ -30,10 +30,10 @@ export default function TabOneScreen() {
           <View className="flex-1">
             <Text>Good morning, {username}</Text>
             <Text className="font-semibold text-black text-2xl ">
-              its been 17 days since your last checkup
+              It's been 17 Days since your last Checkup.
             </Text>
           </View>
-          <Pressable className="bg-[#d9d9d9] w-12 h-12 rounded-full items-center justify-center">
+          <Pressable className="bg-[#d9d9d9] w-10 h-10 rounded-full items-center justify-center">
             <FontAwesome name="bell" size={18} color="black" />
           </Pressable>
         </View>
@@ -44,29 +44,29 @@ export default function TabOneScreen() {
             className="px-3 w-[48%] h-24 bg-[#d9d9d9] rounded-2xl items-center justify-center"
           >
             <Text className="text-black font-semibold text-[20px]">
-              Self examination
+              Self Examination
             </Text>
           </Pressable>
           <View className="px-3 w-[48%] h-24 bg-[#d9d9d9] rounded-2xl items-center justify-center">
             <Text className="text-black font-semibold text-[20px]">
-              Chat with a specialist
+              Chat with a Specialist
             </Text>
           </View>
         </View>
         <View className="flex-row items-center justify-between gap-2 w-full">
           <View className="px-3 w-[48%] h-24 bg-[#d9d9d9] rounded-2xl items-center justify-center">
             <Text className="text-black font-semibold text-[20px]">
-              Check your calendar
+              Check your Calendar
             </Text>
           </View>
           <View className="px-3 w-[48%] h-24 bg-[#d9d9d9] rounded-2xl items-center justify-center">
             <Text className="text-black font-semibold text-[20px]">
-              Read our blog
+              Read our Blog
             </Text>
           </View>
         </View>
         <Text className="mb-2 mt-12 text-black font-semibold text-[20px]">
-          Upcoming events
+          Upcoming Events
         </Text>
         <View className="w-full rounded-2xl bg-[#dedede] h-[25%]"></View>
       </View>

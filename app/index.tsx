@@ -11,7 +11,7 @@ export default function OnboardingScreen() {
   const ITEMS = [
     {
       title: 'Find licensed specialists from your home',
-      label: 'Experts, doctors,consulatants are always there to help',
+      label: 'Experts, Care Takers, Consulatants and Doctors are always there to help',
       active: true,
     },
     {
@@ -58,10 +58,10 @@ export default function OnboardingScreen() {
             />
           ))}
         </View>
-        <CustomText className="text-black capitalize text-center font-bold text-3xl leading-9">
+        <CustomText className="text-black capitalize text-center font-semibold text-3xl leading-9">
           {featuredItem.title}
         </CustomText>
-        <CustomText className="text-black text-center font-bold">
+        <CustomText className="text-black text-center font-bold mx-auto">
           {featuredItem.label}
         </CustomText>
         <View className="items-center justify-between flex-row w-full">
